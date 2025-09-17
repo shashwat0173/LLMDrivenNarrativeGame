@@ -33,6 +33,7 @@ const App = () => {
         });
 
         const data = await response.json();
+        console.log("YOOOOO", messages);
         setMessages(data.messages || []);
       } catch (err) {
         console.error("Failed to fetch initial messages:", err);
@@ -196,7 +197,7 @@ const App = () => {
                 //@ts-ignore
                 message={msg.message}
                 //@ts-ignore
-                isAI={msg.isAI !== false} 
+                isAI={index % 2 === 0 ? true : false} // not ideal but then again nothing ideal in frontend of this app.
               />
             ))
           )}
